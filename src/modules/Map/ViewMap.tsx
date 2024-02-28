@@ -1,0 +1,68 @@
+import React from "react"
+import styled from "styled-components"
+import ButtonMode from "src/modules/Map/components/Buttons/ButtonMode"
+import {PageMode} from "src/types/PageType"
+import Map from "src/modules/Map/components/Map"
+import {MapType} from "src/types/MapType"
+
+
+const StyledPage = styled.div`
+  margin: 0;
+  padding: 0;
+  max-width: 100vw; /* Set maximum width to the width of the viewport */
+  overflow-x: hidden; /* Hide horizontal overflow content */
+  display: flex;
+  flex-direction: column;
+`
+
+const StyledPageContainer = styled.div`
+  margin: 0 auto;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+`
+
+const StyledTitle = styled.h1`
+  font-size: 20px;
+  text-align: center;
+  font-weight: 700;
+`
+
+const StyledButtonMode = styled(ButtonMode)`
+`
+const StyledContent = styled.div`
+`
+
+
+type Props = {
+    mode: PageMode
+
+    map: MapType
+    onClickMode: (mode: PageMode) => void
+    onClickMap: (map: MapType) => void
+}
+
+const ViewMap = (props: Props): React.JSX.Element => {
+    return (
+        <StyledPage>
+            <StyledPageContainer>
+                <StyledTitle>Заболеваемость Описторхозом в России</StyledTitle>
+
+                <StyledButtonMode
+                    onClickMode={props.onClickMode}
+                />
+                <StyledContent>
+                    {props.mode == PageMode.Map &&
+                            <Map
+                                map={props.map}
+                                onClickMap={props.onClickMap}
+                            />
+                    }
+                    {props.mode == PageMode.Graphs && <div>Hello Graph</div>}
+                </StyledContent>
+            </StyledPageContainer>
+        </StyledPage>
+    )
+}
+
+export default ViewMap
