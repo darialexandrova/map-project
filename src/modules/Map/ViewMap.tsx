@@ -46,7 +46,7 @@ const ViewMap = (props: Props): React.JSX.Element => {
     return (
         <StyledPage>
             <StyledPageContainer>
-                <StyledTitle>Заболеваемость Описторхозом в России</StyledTitle>
+                <StyledTitle>География ззаболеваемости описторхозом в России</StyledTitle>
 
                 <StyledButtonMode
                     onClickMode={props.onClickMode}
