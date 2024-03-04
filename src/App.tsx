@@ -1,6 +1,6 @@
 import React from "react"
-import styled from "styled-components"
 import ModelMap from "src/modules/Map/ModelMap"
+import 'src/global.css'
 import 'normalize.css'
 
 

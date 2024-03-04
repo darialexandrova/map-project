@@ -20,6 +20,7 @@ const StyledPageContainer = styled.div`
   width: 80%;
   display: flex;
   flex-direction: column;
+  gap: 10px;
 `
 
 const StyledTitle = styled.h1`

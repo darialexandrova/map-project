@@ -43,6 +43,7 @@ const ButtonPickedRight = styled.button`
   color: white;
   border: none;
   border-radius: 0 15px 15px 0;
+  padding: 0.5rem 1rem;
   margin: 0;
 
   &:active {

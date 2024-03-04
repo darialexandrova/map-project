@@ -6,12 +6,24 @@ import map2 from 'src/modules/Map/pictures/map2.png'
 import map3 from 'src/modules/Map/pictures/map3.png'
 import {MapType} from "src/types/MapType"
 import MapSwitcher from "src/modules/Map/components/MapSwitcher"
+import MapSymbols from "src/modules/Map/components/MapSymbols"
 
 const StyledMapContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  
+  display: grid;
+  grid-template-columns: 0.4fr 1fr;
+  gap: 5px;
+  grid-template-areas:
+  "sw mi"
+  "sm mi"
+;
+`
+
+const StyledMapSwitcher = styled(MapSwitcher)`
+  grid-area: sw;
+`
+
+const StyledMapSymbols = styled(MapSymbols)`
+  grid-area: sm;
 `
 
 const StyledTitle = styled.h2`
@@ -22,11 +34,8 @@ const StyledTitle = styled.h2`
   justify-content: flex-end;
   margin-bottom: 10px;
 `
-const StyledIMG = styled.div`
-  max-width: 55%;
-  height: auto;
-  padding: 10px;
-  margin-bottom: 10px;
+const StyledMapIMG = styled.div`
+  grid-area: mi;
 `
 
 const StyledImg = styled.img`
@@ -73,7 +82,6 @@ const Map = (props: Props): React.JSX.Element => {
             )
         }
     }, [])
-
     const getterTitle = useCallback((map: MapType): string => {
         switch (map) {
             case MapType.Political: return 'Политическая карта России'
@@ -83,22 +91,21 @@ const Map = (props: Props): React.JSX.Element => {
         }
     }, [])
 
-
     return (
         <StyledMapContainer>
+            <StyledMapSwitcher
+                map={props.map}
+                onClickMap={props.onClickMap}
+            />
 
+            <StyledMapSymbols/>
 
-            <StyledIMG>
+            <StyledMapIMG>
                 <StyledTitle>
                     {getterTitle(props.map)}
                 </StyledTitle>
                 {getterImg(props.map)}
-            </StyledIMG>
-
-            <MapSwitcher
-                map={props.map}
-                onClickMap={props.onClickMap}
-            />
+            </StyledMapIMG>
         </StyledMapContainer>
 
     )
