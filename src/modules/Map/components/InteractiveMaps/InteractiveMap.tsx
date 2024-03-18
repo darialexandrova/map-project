@@ -23,6 +23,7 @@ const InteractiveMap = (props: Props): React.JSX.Element => {
 		props.mapType
 	])
 
+
 	return (
 		<div
 			className={styles.rfMap}
