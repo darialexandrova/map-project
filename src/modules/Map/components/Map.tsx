@@ -1,12 +1,9 @@
 import React, {useCallback} from "react"
 import styled from "styled-components"
-import map0 from 'src/modules/Map/pictures/map0.png'
-import map1 from 'src/modules/Map/pictures/map1.png'
-import map2 from 'src/modules/Map/pictures/map2.png'
-import map3 from 'src/modules/Map/pictures/map3.png'
 import {MapType} from "src/types/MapType"
 import MapSwitcher from "src/modules/Map/components/MapSwitcher"
 import MapSymbols from "src/modules/Map/components/MapSymbols"
+import InteractiveMap from "src/modules/Map/components/InteractiveMaps/InteractiveMap"
 
 const StyledMapContainer = styled.div`
   display: grid;
@@ -38,11 +35,6 @@ const StyledMapIMG = styled.div`
   grid-area: mi;
 `
 
-const StyledImg = styled.img`
-  max-width: 100%; // Ensures the image does not exceed the container's width
-  height: auto; // Allows the image to adjust its height
-`
-
 type Props = {
     map: MapType
 
@@ -52,36 +44,11 @@ type Props = {
 const Map = (props: Props): React.JSX.Element => {
 
     const getterImg = useCallback((map: MapType): React.JSX.Element => {
-        switch (map) {
-            case MapType.Political: return (
-                <StyledImg
-                    src={map0}
-                    alt="loser"
-                />
-            )
-
-            case MapType.MorbidityNew: return (
-                <StyledImg
-                    src={map1}
-                    alt="loser"
-                />
-            )
-
-            case MapType.MorbidityOld: return (
-                <StyledImg
-                    src={map2}
-                    alt="loser"
-                />
-            )
-
-            case MapType.AreaByMorbidity: return (
-                <StyledImg
-                    src={map3}
-                    alt="loser"
-                />
-            )
-        }
+        return (
+            <InteractiveMap mapType={map}/>
+        )
     }, [])
+
     const getterTitle = useCallback((map: MapType): string => {
         switch (map) {
             case MapType.Political: return 'Политическая карта России'

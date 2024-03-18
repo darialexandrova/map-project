@@ -1,5 +1,5 @@
 import React from "react"
-import styled from "styled-components"
+import styled, {css} from "styled-components"
 import {PageMode} from "src/types/PageType"
 
 
@@ -13,17 +13,14 @@ const ButtonContainer = styled.div`
   align-self: self-end;
   font-size: 12px;
 `
-
-const ButtonPickedLeft = styled.button`
+const ButtonPicked = css`
+  height: 40px;
   width: 80px;
   background: #3FA8BF; //TODO добавить theme
   cursor: pointer;
   color: white;
   border: none;
-  border-radius: 15px 0 0 15px;
-  padding: 0.5rem 1rem;
   margin: 0;
-
   &:active {
     background: #34889b; //TODO добавить theme
   }
@@ -34,28 +31,11 @@ const ButtonPickedLeft = styled.button`
     background: #34889b; //TODO добавить theme
   }
 `
-const ButtonPickedRight = styled.button`
-  width: 80px;
-  align-items: center;
-  text-align: center;
-  background: #3FA8BF; //TODO добавить theme
-  cursor: pointer;
-  color: white;
-  border: none;
-  border-radius: 0 15px 15px 0;
-  padding: 0.5rem 1rem;
-  margin: 0;
-
-  &:active {
-    background: #34889b; //TODO добавить theme
-  }
-  
-  &:hover {
-    background: #34889b; //TODO добавить theme
-  }
-  &:focus {
-    background: #34889b; //TODO добавить theme
-  }
+const ButtonPickedLeft = ButtonPicked && styled.button`
+  ${ButtonPicked};
+`
+const ButtonPickedRight = ButtonPicked && styled.button`
+  ${ButtonPicked};
 `
 
 type Props = {
