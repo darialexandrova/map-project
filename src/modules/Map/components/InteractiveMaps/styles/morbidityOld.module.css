@@ -1,0 +1,227 @@
+.rfMap,
+.rfMap *{
+    box-sizing: border-box;
+}
+.rfMap {
+    position: relative;
+    max-width: 980px;
+    margin: auto;
+    padding: 20px;
+}
+.rfMap svg {
+    width: 100%;
+    height: 100%;
+}
+.rfMap path {
+    stroke: #FFFFFF;
+    stroke-width: 1;
+    stroke-linejoin: round;
+}
+.rfMap [data-code] {
+    fill: #2B6711;
+    transition: fill 0.2s;
+    cursor: pointer;
+}
+.rfMap [data-code]:hover {
+    /*fill: #0180ef;*/
+    fill: #265C0F;
+}
+
+.dropfill {
+    fill: #2B6711!important;
+}
+.mainfill {
+    fill: #2B6711!important;
+}
+/* Цвета регионов */
+
+.rfMap [data-code="RU-CHU"],
+.rfMap [data-code="RU-VOR"],
+.rfMap [data-code="RU-BEL"],
+.rfMap [data-code="RU-BRY"],
+.rfMap [data-code="RU-KC"],
+.rfMap [data-code="RU-STA"],
+.rfMap [data-code="RU-ROS"],
+.rfMap [data-code="RU-VGG"],
+.rfMap [data-code="RU-SAM"],
+.rfMap [data-code="RU-ULY"],
+.rfMap [data-code="RU-NIZ"],
+.rfMap [data-code="RU-ME"],
+.rfMap [data-code="RU-UD"],
+.rfMap [data-code="RU-BA"],
+.rfMap [data-code="RU-MUR"],
+.rfMap [data-code="RU-NEN"],
+.rfMap [data-code="RU-ARK"],
+.rfMap [data-code="RU-YEV"],
+.rfMap [data-code="RU-PRI"],
+.rfMap [data-code="RU-SAK"],
+.rfMap [data-code="RU-KHA"],
+.rfMap [data-code="RU-MAG"],
+.rfMap [data-code="RU-KAM"]
+{
+    fill: #4BAD21;
+    cursor: pointer;
+}
+
+.rfMap [data-code="RU-CHU"]:hover,
+.rfMap [data-code="RU-VOR"]:hover,
+.rfMap [data-code="RU-BEL"]:hover,
+.rfMap [data-code="RU-BRY"]:hover,
+.rfMap [data-code="RU-KC"]:hover,
+.rfMap [data-code="RU-STA"]:hover,
+.rfMap [data-code="RU-ROS"]:hover,
+.rfMap [data-code="RU-VGG"]:hover,
+.rfMap [data-code="RU-SAM"]:hover,
+.rfMap [data-code="RU-ULY"]:hover,
+.rfMap [data-code="RU-NIZ"]:hover,
+.rfMap [data-code="RU-ME"]:hover,
+.rfMap [data-code="RU-UD"]:hover,
+.rfMap [data-code="RU-BA"]:hover,
+.rfMap [data-code="RU-MUR"]:hover,
+.rfMap [data-code="RU-NEN"]:hover,
+.rfMap [data-code="RU-ARK"]:hover,
+.rfMap [data-code="RU-YEV"]:hover,
+.rfMap [data-code="RU-PRI"]:hover,
+.rfMap [data-code="RU-SAK"]:hover,
+.rfMap [data-code="RU-KHA"]:hover,
+.rfMap [data-code="RU-MAG"]:hover,
+.rfMap [data-code="RU-KAM"]:hover
+{
+    fill: #439B1D;
+}
+
+
+.rfMap [data-code="RU-SA"],
+.rfMap [data-code="RU-KGD"],
+.rfMap [data-code="RU-VLA"],
+.rfMap [data-code="RU-PNZ"],
+.rfMap [data-code="RU-TA"],
+.rfMap [data-code="RU-KIR"],
+.rfMap [data-code="RU-ORE"],
+.rfMap [data-code="RU-CHE"],
+.rfMap [data-code="RU-YAN"],
+.rfMap [data-code="RU-TY"],
+.rfMap [data-code="RU-BU"],
+.rfMap [data-code="RU-AMU"]
+{
+    fill: #A4DD8C;
+    cursor: pointer;
+}
+
+.rfMap [data-code="RU-SA"]:hover,
+.rfMap [data-code="RU-KGD"]:hover,
+.rfMap [data-code="RU-VLA"]:hover,
+.rfMap [data-code="RU-PNZ"]:hover,
+.rfMap [data-code="RU-TA"]:hover,
+.rfMap [data-code="RU-KIR"]:hover,
+.rfMap [data-code="RU-ORE"]:hover,
+.rfMap [data-code="RU-CHE"]:hover,
+.rfMap [data-code="RU-YAN"]:hover,
+.rfMap [data-code="RU-TY"]:hover,
+.rfMap [data-code="RU-BU"]:hover,
+.rfMap [data-code="RU-AMU"]:hover
+{
+    fill: #93C67E;
+}
+
+
+.rfMap [data-code="RU-KHM"],
+.rfMap [data-code="RU-TOM"],
+.rfMap [data-code="RU-TYU"]
+{
+    fill: #DB2F1F;
+    cursor: pointer;
+}
+
+.rfMap [data-code="RU-KHM"]:hover,
+.rfMap [data-code="RU-TOM"]:hover,
+.rfMap [data-code="RU-TYU"]:hover
+{
+    fill: #C52A1B;
+}
+
+
+.rfMap [data-code="RU-KYA"],
+.rfMap [data-code="RU-MO"],
+.rfMap [data-code="RU-CU"],
+.rfMap [data-code="RU-PER"],
+.rfMap [data-code="RU-IRK"]
+{
+    fill: #F5D140;
+    cursor: pointer;
+}
+
+.rfMap [data-code="RU-KYA"]:hover,
+.rfMap [data-code="RU-MO"]:hover,
+.rfMap [data-code="RU-CU"]:hover,
+.rfMap [data-code="RU-PER"]:hover,
+.rfMap [data-code="RU-IRK"]:hover
+{
+    fill: #DCBC39;
+}
+
+
+.rfMap [data-code="RU-KO"],
+.rfMap [data-code="RU-ALT"],
+.rfMap [data-code="RU-KEM"],
+.rfMap [data-code="RU-SVE"]
+{
+    fill: #FF8F3A;
+    cursor: pointer;
+}
+
+.rfMap [data-code="RU-KO"]:hover,
+.rfMap [data-code="RU-ALT"]:hover,
+.rfMap [data-code="RU-KEM"]:hover,
+.rfMap [data-code="RU-SVE"]:hover
+{
+    fill: #E58034;
+}
+
+
+.rfMap [data-code="RU-KGN"],
+.rfMap [data-code="RU-AST"],
+.rfMap [data-code="RU-AL"],
+.rfMap [data-code="RU-NVS"],
+.rfMap [data-code="RU-OMS"]
+{
+    fill: #D67328;
+    cursor: pointer;
+}
+
+.rfMap [data-code="RU-KGN"]:hover,
+.rfMap [data-code="RU-AST"]:hover,
+.rfMap [data-code="RU-AL"]:hover,
+.rfMap [data-code="RU-NVS"]:hover,
+.rfMap [data-code="RU-OMS"]:hover
+{
+    fill: #C06724;
+}
+
+
+.rfMap [data-code="RU-PSK"],
+.rfMap [data-code="RU-IN"],
+.rfMap [data-code="RU-CE"],
+.rfMap [data-code="RU-IVA"],
+.rfMap [data-code="RU-TAM"],
+.rfMap [data-code="RU-LIP"],
+.rfMap [data-code="RU-VLG"],
+.rfMap [data-code="RU-TVE"],
+.rfMap [data-code="RU-SMO"]
+{
+    fill: #888C9A;
+    cursor: pointer;
+}
+
+.rfMap [data-code="RU-PSK"]:hover,
+.rfMap [data-code="RU-IN"]:hover,
+.rfMap [data-code="RU-CE"]:hover,
+.rfMap [data-code="RU-IVA"]:hover,
+.rfMap [data-code="RU-TAM"]:hover,
+.rfMap [data-code="RU-LIP"]:hover,
+.rfMap [data-code="RU-VLG"]:hover,
+.rfMap [data-code="RU-TVE"]:hover,
+.rfMap [data-code="RU-SMO"]:hover
+{
+    fill: #7A7E8A;
+}

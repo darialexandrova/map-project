@@ -10,16 +10,16 @@ const ModelMap = (): React.JSX.Element => {
     // ----- Состояние
     //
     const [mode, setMode] = useState<PageMode>(PageMode.Map)
-    const [map, setMap] = useState<MapType>(MapType.Political)
+    const [mapType, setMapType] = useState<MapType>(MapType.Political)
 
     return (
         <ViewMap
             mode={mode}
 
-            map={map}
+            mapType={mapType}
 
             onClickMode={setMode}
-            onClickMap={setMap}
+            onClickMap={setMapType}
         />
     )
 }

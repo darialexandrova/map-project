@@ -29,16 +29,13 @@ const StyledTitle = styled.h1`
   font-weight: 700;
 `
 
-const StyledButtonMode = styled(ButtonMode)`
-`
 const StyledContent = styled.div`
 `
 
 
 type Props = {
     mode: PageMode
-
-    map: MapType
+    mapType: MapType
     onClickMode: (mode: PageMode) => void
     onClickMap: (map: MapType) => void
 }
@@ -49,13 +46,14 @@ const ViewMap = (props: Props): React.JSX.Element => {
             <StyledPageContainer>
                 <StyledTitle>География заболеваемости описторхозом в России</StyledTitle>
 
-                <StyledButtonMode
+                <ButtonMode
+                    mode={props.mode}
                     onClickMode={props.onClickMode}
                 />
                 <StyledContent>
                     {props.mode == PageMode.Map &&
                             <Map
-                                map={props.map}
+	                            mapType={props.mapType}
                                 onClickMap={props.onClickMap}
                             />
                     }

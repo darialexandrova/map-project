@@ -7,23 +7,27 @@ import InteractiveMap from "src/modules/Map/components/InteractiveMaps/Interacti
 
 const StyledMapContainer = styled.div`
   display: grid;
-  grid-template-columns: 0.4fr 1fr;
-  gap: 5px;
-  grid-template-areas:
-  "sw mi"
-  "sm mi"
+  grid-template-columns: 0.3fr 0.7fr;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 ;
 `
 
-const StyledMapSwitcher = styled(MapSwitcher)`
-  grid-area: sw;
+const StyledControls = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 `
 
-const StyledMapSymbols = styled(MapSymbols)`
-  grid-area: sm;
+const StyledInteractive = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 `
 
 const StyledTitle = styled.h2`
+  width: max-content;
   text-align: end;
   display: flex;
   align-self: flex-end;
@@ -31,12 +35,9 @@ const StyledTitle = styled.h2`
   justify-content: flex-end;
   margin-bottom: 10px;
 `
-const StyledMapIMG = styled.div`
-  grid-area: mi;
-`
 
 type Props = {
-    map: MapType
+    mapType: MapType
 
     onClickMap: (map: MapType) => void
 }
@@ -60,19 +61,22 @@ const Map = (props: Props): React.JSX.Element => {
 
     return (
         <StyledMapContainer>
-            <StyledMapSwitcher
-                map={props.map}
-                onClickMap={props.onClickMap}
-            />
-
-            <StyledMapSymbols/>
-
-            <StyledMapIMG>
+            <StyledControls>
+                <MapSwitcher
+                    mapType={props.mapType}
+                    onClickMap={props.onClickMap}
+                />
+                <MapSymbols
+                    mapType={props.mapType}
+                />
+            </StyledControls>
+            <StyledInteractive>
                 <StyledTitle>
-                    {getterTitle(props.map)}
+                    {getterTitle(props.mapType)}
                 </StyledTitle>
-                {getterImg(props.map)}
-            </StyledMapIMG>
+
+                {getterImg(props.mapType)}
+            </StyledInteractive>
         </StyledMapContainer>
 
     )
