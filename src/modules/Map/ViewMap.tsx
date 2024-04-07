@@ -4,62 +4,73 @@ import ButtonMode from "src/modules/Map/components/Buttons/ButtonMode"
 import {PageMode} from "src/types/PageType"
 import Map from "src/modules/Map/components/Map"
 import {MapType} from "src/types/MapType"
+import DividerHorizontal from "src/components/DividerHorizontal"
+import GraphFirst from "src/modules/Map/components/Graph"
 
 
 const StyledPage = styled.div`
-  margin: 0;
+  width: 100vw;
+  height: 100vh;
   padding: 0;
-  max-width: 100vw; /* Set maximum width to the width of the viewport */
-  overflow-x: hidden; /* Hide horizontal overflow content */
-  display: flex;
-  flex-direction: column;
+  overflow: hidden;
 `
 
-const StyledPageContainer = styled.div`
-  margin: 0 auto;
-  width: 80%;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+const StyledContent = styled.div`
+  display: grid;
+  grid-template-rows: min-content min-content 1fr;
+  overflow: hidden;
+  padding: 20px;
 `
 
-const StyledTitle = styled.h1`
+const StyledTitle = styled.span`
+  overflow: hidden;
+  width: 100%;
   font-size: 20px;
   text-align: center;
   font-weight: 700;
 `
 
-const StyledContent = styled.div`
+const StyledButtonContainer = styled.div`
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  height: 40px
 `
-
 
 type Props = {
     mode: PageMode
     mapType: MapType
+    region: string
     onClickMode: (mode: PageMode) => void
     onClickMap: (map: MapType) => void
+    setRegion: (region: string) => void
 }
 
 const ViewMap = (props: Props): React.JSX.Element => {
     return (
         <StyledPage>
-            <StyledPageContainer>
+            <StyledContent>
                 <StyledTitle>География заболеваемости описторхозом в России</StyledTitle>
 
-                <ButtonMode
-                    mode={props.mode}
-                    onClickMode={props.onClickMode}
-                />
-                <StyledContent>
-                    {props.mode == PageMode.Map &&
-                            <Map
-	                            mapType={props.mapType}
-                                onClickMap={props.onClickMap}
-                            />
-                    }
-                    {props.mode == PageMode.Graphs && <div>Hello Graph</div>}
-                </StyledContent>
-            </StyledPageContainer>
+                <StyledButtonContainer>
+                    <ButtonMode
+                        mode={props.mode}
+                        onClickMode={props.onClickMode}
+                    />
+                </StyledButtonContainer>
+
+                <DividerHorizontal/>
+                {props.mode == PageMode.Map &&
+                    <Map
+	                    region={props.region}
+                        mapType={props.mapType}
+                        onClickMap={props.onClickMap}
+                        setRegion={props.setRegion}
+                    />
+                }
+                {props.mode == PageMode.Graphs && <GraphFirst/>}
+            </StyledContent>
         </StyledPage>
     )
 }

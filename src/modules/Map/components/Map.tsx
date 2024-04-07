@@ -4,50 +4,108 @@ import {MapType} from "src/types/MapType"
 import MapSwitcher from "src/modules/Map/components/MapSwitcher"
 import MapSymbols from "src/modules/Map/components/MapSymbols"
 import InteractiveMap from "src/modules/Map/components/InteractiveMaps/InteractiveMap"
+import DividerVertical from "src/components/DividerVertical"
+
+import areaIMG from "src/modules/Map/pictures/map3.png"
+import physicalIMG from "src/modules/Map/pictures/map4.png"
 
 const StyledMapContainer = styled.div`
-  display: grid;
-  grid-template-columns: 0.3fr 0.7fr;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-;
+  display: flex;
+  justify-content: space-between;
 `
 
 const StyledControls = styled.div`
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 15px;
 `
 
 const StyledInteractive = styled.div`
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  width: 70%;
+  align-items: flex-end;
+  padding-left: 20px;
+  padding-right: 20px
 `
 
-const StyledTitle = styled.h2`
-  width: max-content;
-  text-align: end;
+const StyledTitleContainer = styled.div`
   display: flex;
-  align-self: flex-end;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+`
+
+const StyledRegion = styled.span`
+  font-size: 14px;
+  font-weight: 500;
+`
+
+const StyledTitle = styled.span`
   font-size: 12px;
-  justify-content: flex-end;
-  margin-bottom: 10px;
 `
 
 type Props = {
     mapType: MapType
-
+    region: string
     onClickMap: (map: MapType) => void
+    setRegion: (region: string) => void
 }
 
 const Map = (props: Props): React.JSX.Element => {
 
     const getterImg = useCallback((map: MapType): React.JSX.Element => {
-        return (
-            <InteractiveMap mapType={map}/>
-        )
+        switch (map) {
+            case MapType.Political: {
+                return (
+                    <InteractiveMap
+                        mapType={map}
+                        setRegion={props.setRegion}
+                    />
+                )
+            }
+
+            case MapType.MorbidityNew: {
+                return (
+                    <InteractiveMap
+                        mapType={map}
+                        setRegion={props.setRegion}
+                    />
+                )
+            }
+
+            case MapType.MorbidityOld: {
+                return (
+                    <InteractiveMap
+                        mapType={map}
+                        setRegion={props.setRegion}
+                    />
+                )
+            }
+
+            case MapType.AreaByMorbidity: {
+                return (
+                    <img src={areaIMG} alt="AREA"/>
+                )
+            }
+
+            case MapType.Physical: {
+                return (
+                    <img src={physicalIMG} alt="AREA"/>
+                )
+            }
+
+            default: {
+                return (
+                    <InteractiveMap
+                        mapType={map}
+                        setRegion={props.setRegion}
+                    />
+                )
+            }
+        }
     }, [])
 
     const getterTitle = useCallback((map: MapType): string => {
@@ -56,8 +114,20 @@ const Map = (props: Props): React.JSX.Element => {
             case MapType.MorbidityNew: return 'Заболеваемость описторхозом в России 2015-2022'
             case MapType.MorbidityOld: return 'Заболеваемость описторхозом в России 1995-2007'
             case MapType.AreaByMorbidity: return 'Районирование территории России по заболеваемости описторхозом'
+            case MapType.Physical: return 'Природные очаги'
         }
     }, [])
+
+    const getterRegion = useCallback((map: MapType): string => {
+        switch (map) {
+            case MapType.Political: return props.region
+            case MapType.MorbidityNew: return props.region
+            case MapType.MorbidityOld: return props.region
+            case MapType.AreaByMorbidity: return  ''
+            case MapType.Physical: return ''
+            default: return ''
+        }
+    }, [props.region])
 
     return (
         <StyledMapContainer>
@@ -70,15 +140,18 @@ const Map = (props: Props): React.JSX.Element => {
                     mapType={props.mapType}
                 />
             </StyledControls>
+
+            <DividerVertical/>
+
             <StyledInteractive>
-                <StyledTitle>
-                    {getterTitle(props.mapType)}
-                </StyledTitle>
+                <StyledTitleContainer>
+                    <StyledRegion>{getterRegion(props.mapType)}</StyledRegion>
+                    <StyledTitle>{getterTitle(props.mapType)}</StyledTitle>
+                </StyledTitleContainer>
 
                 {getterImg(props.mapType)}
             </StyledInteractive>
         </StyledMapContainer>
-
     )
 }
 

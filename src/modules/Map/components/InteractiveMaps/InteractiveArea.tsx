@@ -1,9 +1,6 @@
-import React, {useMemo, useEffect} from "react"
+import React, {useEffect} from "react"
 import styled from "styled-components"
-import styleP from 'src/modules/Map/components/InteractiveMaps/styles/political.module.css'
-import styleMN from 'src/modules/Map/components/InteractiveMaps/styles/morbidityNew.module.css'
-import styleMO from 'src/modules/Map/components/InteractiveMaps/styles/morbidityOld.module.css'
-import styleAM from 'src/modules/Map/components/InteractiveMaps/styles/areaByMorbidity.module.css'
+import styleA from 'src/modules/Map/components/InteractiveMaps/styles/morbidityNew.module.css'
 import {MapType} from "src/types/MapType"
 
 const StyledContainer = styled.div`
@@ -18,32 +15,10 @@ type Props = {
 }
 
 const InteractiveMap = (props: Props): React.JSX.Element => {
-
-	const styles =  useMemo(() => {
-		switch (props.mapType) {
-			case MapType.Political: return styleP
-			case MapType.MorbidityNew: return styleMN
-			case MapType.MorbidityOld: return styleMO
-			default: return styleP
-		}
-	}, [
-		props.mapType
-	])
-
-	useEffect(() => {
-		const areas = document.querySelectorAll('path, g')
-		const regions = Array.from(areas).filter(a => a.getAttribute('data-code') !== null);
-		regions.forEach(r => r.addEventListener('mouseover', () => {
-			const newTitle = r.getAttribute('data-title');
-			props.setRegion(newTitle == null ? '' : newTitle);
-		}))
-	}, [])
-
-
 	return (
 		<StyledContainer>
 			<div
-				className={styles.rfMap}
+				className={styleA.rfMap}
 			>
 				<svg
 					xmlns={'http://www.w3.org/2000/svg'}

@@ -3,20 +3,18 @@ import styled, {css} from "styled-components"
 import {PageMode} from "src/types/PageType"
 
 
-// TODO хардкод
 const ButtonContainer = styled.div`
+  width: 120px;
+  height: 30px;
   border-radius: 10px;
   display: flex;
-  justify-content: space-between;
-  overflow: hidden;
   background: #3FA8BF;
-  align-self: self-end;
   font-size: 12px;
   font-weight: 500;
 `
 const ButtonPicked = css`
-  height: 32px;
-  width: 60px;
+
+  width: 59px;
   cursor: pointer;
   color: white;
   border: none;
@@ -34,10 +32,12 @@ const ButtonPicked = css`
 const ButtonPickedLeft = ButtonPicked && styled.button<{$mode: PageMode}>`
   ${ButtonPicked};
   background: ${props => props.$mode == PageMode.Map ? '#328191' : '#3FA8BF'};
+  border-radius: 10px 0 0 10px;
 `
 const ButtonPickedRight = ButtonPicked && styled.button<{$mode: PageMode}>`
   ${ButtonPicked};
   background: ${props => props.$mode == PageMode.Graphs ? '#328191' : '#3FA8BF'};
+  border-radius: 0 10px 10px 0;
 `
 
 type Props = {

@@ -1,26 +1,20 @@
 import React from "react"
 import styled from "styled-components"
 import {MapType} from "src/types/MapType"
+import DividerHorizontal from "src/components/DividerHorizontal"
 
 const StyledMapSwitcherContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 5px;
-  border: 1px solid rgba(0, 0, 0, 0.8);
   border-radius: 10px;
 `
 
 const StyledTitle = styled.h2`
   padding: 5px;
-  font-size: 14px;
+  font-size: 16px;
   text-align: center;
-`
-
-const StyledLine = styled.div`
-  height: 1px;
-  width: 100%;
-  background: black;
-  opacity: 0.5;
+  font-weight: 500;
 `
 
 const Radio = styled.div`
@@ -36,9 +30,10 @@ const StyledRadio = styled.button<{$background: boolean}>`
   cursor: pointer;
   width: 18px;
   height: 18px;
-  border: 1px solid black;
+  border: 2px solid #1E4F5CFF;
   border-radius: 50%;
-  background: ${props => props.$background == true ? 'black' : 'white'};
+  background: ${props => props.$background == true ? '#328191' : 'white'};
+  transition: 200ms ease-in-out;
 `
 
 const StyledLabel = styled.label`
@@ -55,7 +50,7 @@ const MapSwitcher = (props: Props): React.JSX.Element => {
     return (
         <StyledMapSwitcherContainer>
             <StyledTitle>Карты</StyledTitle>
-            <StyledLine/>
+            <DividerHorizontal/>
             <Radio>
             <StyledRadio
                 $background={props.mapType == MapType.Political}
@@ -85,7 +80,13 @@ const MapSwitcher = (props: Props): React.JSX.Element => {
                 onClick={() => props.onClickMap(MapType.AreaByMorbidity)}
             />
             <StyledLabel>Районирование территории России по заболеваемости описторхозом</StyledLabel>
-        </Radio>
+
+                <StyledRadio
+                    $background={props.mapType == MapType.Physical}
+                    onClick={() => props.onClickMap(MapType.Physical)}
+                />
+                <StyledLabel>Природные очаги</StyledLabel>
+            </Radio>
         </StyledMapSwitcherContainer>
     )
 }
