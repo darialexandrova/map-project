@@ -217,7 +217,6 @@ const MapSymbols = (props: Props): React.JSX.Element => {
 			                        $bgImg={bg9}
 		                        />
 		                        <span>Донской район</span>
-
 		                        <StyledSymbolImg
 			                        $bgImg={bg10}
 		                        />
