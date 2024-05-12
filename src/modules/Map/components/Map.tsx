@@ -110,7 +110,7 @@ const Map = (props: Props): React.JSX.Element => {
 
     const getterTitle = useCallback((map: MapType): string => {
         switch (map) {
-            case MapType.Political: return 'Политическая карта России'
+            case MapType.Political: return 'Административно-территориальное устройство России'
             case MapType.MorbidityNew: return 'Заболеваемость описторхозом в России 2015-2022'
             case MapType.MorbidityOld: return 'Заболеваемость описторхозом в России 1995-2007'
             case MapType.AreaByMorbidity: return 'Районирование территории России по заболеваемости описторхозом'
