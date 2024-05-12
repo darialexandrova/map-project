@@ -58,7 +58,7 @@ const MapSwitcher = (props: Props): React.JSX.Element => {
             />
 
             <StyledLabel>
-                Политическая карта России
+                Административно-территориальное устройство России
             </StyledLabel>
 
             <StyledRadio

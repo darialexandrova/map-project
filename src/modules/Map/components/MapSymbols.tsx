@@ -122,6 +122,11 @@ const MapSymbols = (props: Props): React.JSX.Element => {
 			                    $bgColor={'#2B6711'}
 		                    />
 		                    <span>0.01-0.15</span>
+
+		                    <StyledSymbol
+			                    $bgColor={'#888C9A'}
+		                    />
+		                    <span>Нет данных</span>
 	                    </StyledContent>
                     </StyledSymbolsContainer>}
 
@@ -163,6 +168,11 @@ const MapSymbols = (props: Props): React.JSX.Element => {
                             $bgColor={'#2B6711'}
                             />
                             <span>0.00-0.15</span>
+
+	                        <StyledSymbol
+		                        $bgColor={'#888C9A'}
+	                        />
+	                        <span>Нет данных</span>
                         </StyledContent>
                     </StyledSymbolsContainer>
                 }
